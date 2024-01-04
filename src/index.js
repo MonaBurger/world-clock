@@ -22,6 +22,18 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+
+  let lisbon = document.querySelector("#lisbon");
+  if (lisbon) {
+    let lisbonDate = lisbon.querySelector(".date");
+    let lisbonTime = lisbon.querySelector(".time");
+    let lisbonCurrentTime = moment().tz("Europe/Lisbon");
+    lisbonDate.innerHTML = lisbonCurrentTime.format("MMMM Do YYYY");
+
+    lisbonTime.innerHTML = lisbonCurrentTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 updateTime();
 setInterval(updateTime, 1000);
